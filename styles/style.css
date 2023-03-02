@@ -1,0 +1,734 @@
+/* css reset by EcXscariot/yourOrdinaryCarrot */
+/* last modified 11/20/2022 */
+
+/* addapted from:  */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* ----------------- */
+/*     Imported      */
+/* ----------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+
+/* ----------------- */
+/* Custom properties */
+/* ----------------- */
+
+:root {
+
+  /*color*/
+  --clr-base-900: #f8f9fc;
+  --clr-base-800: #e1e3ec;
+  --clr-base-850: #e1e3ec2c;
+  --clr-base-700: #b9b4bd;
+  --clr-base-600: #cccad4;
+  --clr-base-500: #9f9cac;
+  --clr-base-300: #70738f;
+  --clr-base-100: #040000;
+  --clr-base-200: #0f0f0f;
+  --clr-accent-200: #54cbed;
+  --clr-accent-250: #00cff83b;
+  --clr-accent-100: #72a8d4;
+
+  /*font-sizes*/
+
+  --fs-XL: 3rem;
+  --fs-L: 2.256rem;
+  --fs-M: 1.5rem;
+  --fs-S: 1rem;
+  --fs-XS: 0.625rem;
+
+  /*font-fams*/
+  --ff-head: 'Gruppo', monospace;
+  --ff-main: 'Gruppo', monospace;
+  --ff-sub: 'Gruppo', monospace;
+
+  /* font-weight */
+  --fw-black: 900;
+  /*thicc*/
+  --fw-bold: 700;
+  --fw-big: 500;
+  --fw-base: 400;
+  --fw-small: 200;
+  --fw-thin: 100;
+
+
+  /* other root sizes */
+  --animation-speed: 0.7s;
+  --animation-speed-slow: 1.5s;
+  --animation-speed-fast: 0.5s;
+
+}
+
+/* ----------------- */
+/* Reset */
+/* ----------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  overflow: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-main);
+  font-weight: var(--fw-base);
+
+  /* ^^ toggle depending on website layout ^^ */
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/*change default link on click text color*/
+a:active {
+  color: var(--clr-base-000);
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Resets button decorations*/
+button {
+  padding: 0;
+  outline: none;
+  border-style: none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------- */
+/*utility classes*/
+/* ----------------- */
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  translate: -50% -50%;
+}
+
+/* ----------------- */
+/*General use classes*/
+/* ----------------- */
+
+/* fonts */
+.font-title {
+  font-size: var(--fs-XL);
+  font-family: var(--ff-head);
+  font-weight: var(--fw-big);
+}
+
+.font-subtitle {
+  font-size: var(--fs-L);
+  font-family: var(--ff-head);
+  font-family: var(--fw-big);
+}
+
+.font-body {
+  font-size: var(--fs-M);
+  font-family: var(--ff-main);
+  font-family: var(--fw-base);
+}
+
+.font-subtext {
+  font-size: var(--fs-S);
+  font-family: var(--ff-sub);
+  font-weight: var(--fw-small);
+}
+
+.font-hidden {
+  font-size: var(--fs-XS);
+  font-family: var(--ff-sub);
+  font-weight: var(--fw-small);
+}
+
+/* backgrounds */
+.bg-board {
+  background-color: var(--clr-base-100);
+}
+
+.bg-container-weak {
+  background-color: var(--clr-base-200);
+}
+
+.bg-container-strong {
+  background-color: var(--clr-base-900);
+}
+
+.bg-accent-weak {
+  background-color: var(--clr-accent-100);
+}
+
+.bg-accent-strong {
+  background-color: var(--clr-accent-200);
+}
+
+/* color styling */
+.clr-light {
+  color: var(--clr-base-900);
+}
+
+.clr-accent {
+  color: var(--clr-accent-200);
+}
+
+/* element styling */
+.btn-standard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 3rem;
+  width: 100%;
+  border-radius: 0.256rem;
+
+
+  background-color: var(--clr-base-850);
+  color: var(--clr-base-900);
+
+  cursor: pointer;
+  
+}
+
+.link-standard {
+  display: flex;
+  width: 70%;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.link-standard:hover {
+  opacity: 80%;
+}
+
+
+
+
+/* ----------------- */
+/*Custom styles*/
+/* ----------------- */
+.wrapper {
+  flex-direction: column;
+  position: relative;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+#nav-menu {
+  z-index: 900;
+  max-width: 20rem;
+  min-width: 5rem;
+  aspect-ratio: 1;
+  margin-inline: 4.5rem;
+  background-color: rgb(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.nav-buttons {
+  z-index: 500;
+  position: absolute;
+
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+
+
+
+  opacity: 0;
+
+}
+
+#button-animation[data-pressed="on"]>.link-standard {
+  pointer-events: all;
+}
+
+#nav-btn-1:hover {
+  text-shadow: 0 0 0.5rem var(--clr-base-100);
+  background-color: var(--clr-base-300);
+}
+
+#nav-btn-2:hover {
+  text-shadow: 0 0 0.5rem var(--clr-base-100);
+  background-color: var(--clr-base-300);
+}
+
+#nav-btn-3:hover {
+  text-shadow: 0 0 0.5rem var(--clr-base-100);
+  background-color: var(--clr-base-300);
+}
+
+#nav-btn-4:hover {
+  text-shadow: 0 0 0.5rem var(--clr-base-100);
+  background-color: var(--clr-base-300);
+}
+
+#nav-btn-5:hover {
+  text-shadow: 0 0 0.5rem var(--clr-base-100);
+  background-color: var(--clr-base-300);
+}
+
+a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+/* ----------------- */
+/*     Svg styles    */
+/* ----------------- */
+#nav-menu-svg {
+  width: 100%;
+  height: 100%;
+}
+
+#logo-bg {
+  fill: var(--clr-base-200);
+}
+
+#name-box {
+  fill: var(--clr-base-200);
+}
+
+#name-box-glow {
+  fill: var(--clr-base-900);
+}
+
+#rihsuri,
+#rihsuri-glow {
+  fill: var(--clr-base-900);
+}
+
+#tri-body,
+#tri-glow {
+  stroke: var(--clr-base-900);
+}
+
+/* ----------------- */
+/*     animations    */
+/* ----------------- */
+
+/* animate */
+
+/* an abomination I love it tho */
+/* #nav-menu-svg {
+  animation: breath 2s linear infinite;
+} */
+
+#nav-menu[data-pressed="on"] {
+  animation: toMove var(--animation-speed) cubic-bezier(.2, .41, 0, 1.47) 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#name-box {
+  transform: translateZ(0);
+  animation: toCenter var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#name-box-glow {
+  transform: translateZ(0);
+  animation: toCenter var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#rihsuri {
+  transform: translateZ(0);
+  animation: toCenter var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#rihsuri-glow {
+  transform: translateZ(0);
+  animation: toCenter var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#tri-body {
+  transform: translateZ(0);
+  transform-origin: center;
+  animation: spin var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg>#tri-glow {
+  transform: translateZ(0);
+  transform-origin: center;
+  animation: spin var(--animation-speed) ease-in-out 0s forwards;
+}
+
+#nav-menu-svg {
+  transform: translateZ(0);
+  animation: svgShadow 4.5s linear infinite;
+}
+
+/* animate-reverse */
+#nav-menu[data-pressed="off"] {
+  transform: translateZ(0);
+  animation: toMoveBack var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#name-box {
+  transform: translateZ(0);
+  animation: toBorder var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#name-box-glow {
+  transform: translateZ(0);
+  animation: toBorder var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#rihsuri {
+  transform: translateZ(0);
+  animation: toBorder var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#rihsuri-glow {
+  transform: translateZ(0);
+  animation: toBorder var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#tri-body {
+  transform: translateZ(0);
+  transform-origin: center;
+  animation: backSpin var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="off"]>#nav-menu-svg>#tri-glow {
+  transform: translateZ(0);
+  transform-origin: center;
+  animation: backSpin var(--animation-speed-fast) ease-out 0s forwards;
+}
+
+#nav-menu[data-pressed="on"]>#nav-menu-svg {
+  transform: translateZ(0);
+  animation: none;
+}
+
+/* move */
+@keyframes toMove {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(240deg);
+  }
+}
+
+@keyframes toCenter {
+  from {
+    transform: translate(0%);
+  }
+
+  to {
+    transform: translate(-18%, -2%);
+  }
+}
+
+/* move back */
+@keyframes toMoveBack {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes backSpin {
+  from {
+    transform: rotate(240deg);
+  }
+
+  to {
+    transform: rotate(0%);
+  }
+}
+
+@keyframes toBorder {
+  from {
+    transform: translate(-18%, -2%);
+  }
+
+  to {
+    transform: translate(0%);
+  }
+}
+
+#button-animation[data-pressed="on"] {
+  transform: translateZ(0);
+  animation: buttonMove var(--animation-speed) cubic-bezier(.5, .8, 0.5, 1.3) 0s forwards;
+}
+
+#button-animation[data-pressed="off"] {
+  transform: translateZ(0);
+  animation: buttonMoveBack var(--animation-speed-fast) ease-in 0s forwards;
+}
+
+@keyframes buttonMove {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(55%);
+    opacity: 100%;
+  }
+}
+
+@keyframes buttonMoveBack {
+  from {
+    transform: translateY(55%);
+    opacity: 100%;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 0;
+
+  }
+}
+
+@keyframes svgShadow {
+  0% {
+    filter: drop-shadow(0rem 0rem 0rem rgb(0, 0, 0, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0.2rem 0.2rem 0.5rem var(--clr-base-900));
+  }
+
+  100% {
+    filter: drop-shadow(0rem 0rem 0rem rgb(0, 0, 0, 0));
+  }
+}
+
+#particles-js {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  filter: drop-shadow(0.2rem 0.2rem 10px var(--clr-accent-250));
+}
+
+/* this is too cursed to look at */
+/* @keyframes breath {
+  0% {scale: 1;}
+  33% {scale: 1.05;}
+  66% {scale: 0.95;}
+  100% {scale: 1;}
+} */
+
+/* ----------------- */
+/*    media queries  */
+/* ----------------- */
+
+
+@media (min-width: 62.5rem) {
+  .nav-buttons {
+    opacity: 100;
+  }
+
+  @keyframes toMove {
+    from {
+      transform: translateX(0px);
+    }
+
+    to {
+      transform: translateX(-55%);
+    }
+  }
+
+  @keyframes toMoveBack {
+    from {
+      transform: translateX(-55%);
+    }
+
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes buttonMove {
+    from {
+      transform: translateX(-10%);
+      opacity: 0;
+    }
+
+    to {
+      opacity: 100%;
+    }
+  }
+
+  @keyframes buttonMoveBack {
+    0% {
+      opacity: 100%;
+    }
+
+    30% {
+      transform: translateX(-30%);
+      opacity: 0;
+    }
+  }
+
+  #button-animation {
+    animation: none !important;
+  }
+
+  #button-animation[data-pressed="on"]>#nav-link-5 {
+    transform: translateX(50%);
+    animation: buttonMove 1000ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="on"]>#nav-link-4 {
+    transform: translateX(40%);
+    animation: buttonMove 800ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="on"]>#nav-link-3 {
+    transform: translateX(30%);
+    animation: buttonMove 600ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="on"]>#nav-link-2 {
+    transform: translateX(20%);
+    animation: buttonMove 400ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="on"]>#nav-link-1 {
+    transform: translateX(10%);
+    animation: buttonMove 200ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+  /* close */
+  #button-animation[data-pressed="off"]>#nav-link-5 {
+    animation: buttonMoveBack 1100ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+
+  }
+
+  #button-animation[data-pressed="off"]>#nav-link-4 {
+    animation: buttonMoveBack 1000ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+   
+  }
+
+  #button-animation[data-pressed="off"]>#nav-link-3 {
+    animation: buttonMoveBack 800ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="off"]>#nav-link-2 {
+    animation: buttonMoveBack 600ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+  }
+
+  #button-animation[data-pressed="off"]>#nav-link-1 {
+    animation: buttonMoveBack 400ms cubic-bezier(.5, .8, 0.5, 1.3) forwards;
+   }
+
+
+  #nav-link-1 {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #nav-link-2 {
+    opacity: 0;
+    pointer-events: none; 
+   }
+
+  #nav-link-3 {
+    opacity: 0;
+    pointer-events: none; 
+   }
+
+  #nav-link-4 {
+    opacity: 0;
+    pointer-events: none; 
+   }
+
+  #nav-link-5 {
+    opacity: 0;
+    pointer-events: none; 
+   }
+}
+
+/* ----------------- */
+/*     debugger      */
+/* ----------------- */
+
+
+/* *{outline: 0.0625rem solid red;} */

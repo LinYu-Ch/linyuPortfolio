@@ -1,0 +1,38 @@
+.mouse{
+    height: 4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid white;
+
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 10000;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mouse-svg{
+    height: 100%;
+    width: 100%;
+}
+#mouse-triangle{
+    stroke: white;
+}
+body:hover > .mouse-hover{
+    opacity: 0.5;
+}
+
+.acctivate{
+    opacity: 1;
+    stroke: white;
+    filter: drop-shadow(0.2rem 0.2rem 0.5rem var(--clr-base-900));
+}
+.trigger {
+    cursor: none;
+}

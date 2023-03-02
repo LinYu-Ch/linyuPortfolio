@@ -1,0 +1,19 @@
+#context-menu {
+    background-color: #ffffff;
+    color: #1f194c;
+    width: 10em;
+    padding: 0.8em 0.6em;
+    font-size: 1.3rem;
+    position: fixed;
+    visibility: hidden;
+    z-index: 10000;
+    opacity: 0.7;
+}
+.navigation-item {
+    padding-inline: 0.6em;
+    padding-block: 0.3rem;
+}
+.navigation-item:hover {
+    opacity: 20%;
+    cursor: pointer;
+}
